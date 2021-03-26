@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.toi.proto.mapper.TestMapper">
+	<resultMap id="testDomain" type="com.toi.proto.domain.TestDomain">
+		<id property="id" column="id" />
+		<result property="platformName" column="platformName" />
+	</resultMap>
+	<select id="getTest" resultType="com.toi.proto.domain.TestDomain">
+		select
+			cp.id as id,
+			cp.platform_name as platformName
+		from csd_platform as cp
+	</select>
+</mapper>
