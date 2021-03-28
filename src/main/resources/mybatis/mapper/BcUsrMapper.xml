@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.toi.proto.mapper.BcUsrMapper">
+<select id="selectListBcUsr" 
+	resultType="com.toi.proto.dvo.BcUsrDVO">
+<![CDATA[
+			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectListBcUsr */
+				   USR_ID
+				 , USR_NM
+				 , USR_EML
+				 , USR_TEL
+				 , USR_BRT_DT
+			  FROM TB_BC_USR
+]]>
+	</select>
+	
+	<select id="selectOneBcUsr" 
+	resultType="com.toi.proto.dvo.BcUsrDVO">
+<![CDATA[
+			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectOneBcUsr */
+				   USR_ID 		AS USR_ID				/* 사용자ID 		*/
+				 , USR_NM 		AS USR_NM				/* 사용자명 		*/
+				 , USR_EML 		AS USR_EML				/* 사용자이메일 	*/
+				 , USR_TEL		AS USR_TEL				/* 사용자전화번호	*/
+				 , USR_BRT_DT	AS USR_BRT_DT			/* 사용자생년월일	*/
+			  FROM TB_BC_USR
+]]>
+		<where>
+			<if test = 'usrId != null and usrId != "" '>
+<![CDATA[	   AND USR_ID 		= #{usrId}				/* 사용자ID 		*/ ]]>
+			</if>
+			<if test = 'usrNm != null and usrNm != "" '>
+<![CDATA[  	   AND USR_NM 		= #{usrNm} 			/* 사용자명 		*/ ]]>
+			</if>
+			<if test = 'usrEml != null and usrEml != "" '>
+<![CDATA[  	   AND USR_EML		=						/* 사용자이메일 	*/ ]]>
+			</if>
+			<if test = 'usrTel != null and usrTel != "" '>
+<![CDATA[  	   AND USR_TEL 		= #{usrTel}			/* 사용자전화번호 	*/ ]]>
+			</if>
+			<if test = 'usrBrtDt != null and usrBrtDt != "" '>
+<![CDATA[  	   AND USR_BRT_DT  = #{usrBrtDt}			/* 사용자생년월일 	*/ ]]>
+			</if>
+		</where>
+	</select>
+	
+	<insert id="insertBcUsr">
+<![CDATA[
+		INSERT /* SQL_ID : com.toi.proto.mapper.UsrMapper.insertBcUsr */
+		  INTO TB_BC_USR
+			 ( USR_ID 						/* 사용자ID 		*/
+			 , USR_EML                      /* 사용자명 		*/
+			 , USR_NM                       /* 사용자이메일 	*/
+			 , USR_TEL                      /* 사용자전화번호	*/
+			 , USR_BRT_DT                   /* 사용자생년월일	*/
+			 , USR_PWD 						/* 사용자비밀번호	*/
+			 )
+		VALUES
+		    ( #{usrId}                     /* 사용자ID 		*/
+		    , #{usrEml}                    /* 사용자명 		*/
+		    , #{usrNm}                     /* 사용자이메일 	*/
+		    , #{usrTel}                    /* 사용자전화번호	*/
+		    , #{usrBrtDt}                  /* 사용자생년월일	*/
+		    , #{usrPwd}                    /* 사용자비밀번호	*/
+		    );
+]]>
+	</insert>
+	
+	<update id="updateBcUsr">
+<![CDATA[
+		UPDATE /* SQL_ID : com.toi.proto.mapper.UsrMapper.updateBcUsr */
+			   TB_BC_USR
+		   SET USR_NM 		= #{usrNm}			/* 사용자명 		*/  
+			   USR_TEL 		= #{usrTel}        	/* 사용자전화번호	*/ 
+			   USR_BRT_DT 	= #{usrBrtDt}      	/* 사용자생년월일	*/ 
+			   USR_PWD 		= #{usrPwd}        	/* 사용자비밀번호	*/ 
+		 WHERE USR_ID 		= #{usrId}         	/* 사용자ID 		*/
+		   AND USR_EML 		= #{usrEml}			/* 사용자이메일 	*/  
+]]>
+	</update>
+	
+	<delete id="deleteBcUsr">
+<![CDATA[
+		DELETE /* SQL_ID : com.toi.proto.mapper.UsrMapper.deleteBcUsr */
+		  FROM TB_BC_USR
+		 WHERE USR_ID 		= #{usrId}          /* 사용자ID 		*/
+		   AND USR_EML 		= #{usrEml}			/* 사용자이메일 	*/  
+]]>
+	</delete>
+</mapper>

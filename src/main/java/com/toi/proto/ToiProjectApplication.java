@@ -15,18 +15,18 @@ import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 @MapperScan(value={"com.toi.proto.mapper"})
 public class ToiProjectApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(ToiProjectApplication.class, args);
-	}
-	
+    public static void main(String[] args) {
+        SpringApplication.run(ToiProjectApplication.class, args);
+    }
+    
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception{
         SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
         sessionFactory.setDataSource(dataSource);
-        
-        Resource[] res = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/*.xml");
-        sessionFactory.setMapperLocations(res);
-        
+        Resource configLocation = new PathMatchingResourcePatternResolver().getResource("classpath:mybatis/mybatis-config.xml");
+        Resource[] mapperLocation = new PathMatchingResourcePatternResolver().getResources("classpath:mybatis/mapper/*.xml");
+        sessionFactory.setConfigLocation(configLocation);
+        sessionFactory.setMapperLocations(mapperLocation);
         return sessionFactory.getObject();
     }
 
