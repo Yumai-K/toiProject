@@ -34,7 +34,7 @@
 	</select>
 	
 	<select id="selectOneBcUsr" 
-	resultType="com.toi.proto.dvo.BcUsrDVO">
+	resultType="BcUsrDVO">
 <![CDATA[
 			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectOneBcUsr */
 				   USR_ID 		AS USR_ID				/* 사용자ID 		*/
