@@ -6,4 +6,8 @@
 		<setting name="callSettersOnNulls" value="true"/>
 		<setting name="jdbcTypeForNull" value="NULL"/>
 	</settings>
+	
+	<typeAliases>
+		 <package name="com.toi.proto.dvo"/> 
+	</typeAliases>
 </configuration>

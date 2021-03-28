@@ -4,7 +4,7 @@
 
 <mapper namespace="com.toi.proto.mapper.BcUsrMapper">
 <select id="selectListBcUsr" 
-	resultType="com.toi.proto.dvo.BcUsrDVO">
+	resultType="BcUsrDVO">
 <![CDATA[
 			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectListBcUsr */
 				   USR_ID
@@ -14,6 +14,23 @@
 				 , USR_BRT_DT
 			  FROM TB_BC_USR
 ]]>
+        <where>
+            <if test = 'usrId != null and usrId != "" '>
+<![CDATA[       AND USR_ID        LIKE '%' || #{usrId} || '%'    	/* 사용자ID 		*/ ]]>
+            </if>
+            <if test = 'usrNm != null and usrNm != "" '>
+<![CDATA[         AND USR_NM      LIKE '%' || #{usrNm} || '%'    	/* 사용자명 		*/ ]]>
+            </if>
+            <if test = 'usrEml != null and usrEml != "" '>
+<![CDATA[         AND USR_EML     LIKE '%' || #{usrEml} || '%'   	/* 사용자이메일 	*/ ]]>
+            </if>
+            <if test = 'usrTel != null and usrTel != "" '>
+<![CDATA[         AND USR_TEL     LIKE '%' || #{usrTel} || '%'    	/* 사용자전화번호	*/ ]]>
+            </if>
+            <if test = 'usrBrtDt != null and usrBrtDt != "" '>
+<![CDATA[         AND USR_BRT_DT  LIKE '%' || #{usrBrtDt} || '%'    /* 사용자생년월일 	*/ ]]>
+            </if>
+        </where>
 	</select>
 	
 	<select id="selectOneBcUsr" 
@@ -32,16 +49,16 @@
 <![CDATA[	   AND USR_ID 		= #{usrId}				/* 사용자ID 		*/ ]]>
 			</if>
 			<if test = 'usrNm != null and usrNm != "" '>
-<![CDATA[  	   AND USR_NM 		= #{usrNm} 			/* 사용자명 		*/ ]]>
+<![CDATA[  	   AND USR_NM 		= #{usrNm} 				/* 사용자명 		*/ ]]>
 			</if>
 			<if test = 'usrEml != null and usrEml != "" '>
-<![CDATA[  	   AND USR_EML		=						/* 사용자이메일 	*/ ]]>
+<![CDATA[  	   AND USR_EML		= #{usrEml}				/* 사용자이메일 	*/ ]]>
 			</if>
 			<if test = 'usrTel != null and usrTel != "" '>
-<![CDATA[  	   AND USR_TEL 		= #{usrTel}			/* 사용자전화번호 	*/ ]]>
+<![CDATA[  	   AND USR_TEL 		= #{usrTel}				/* 사용자전화번호 	*/ ]]>
 			</if>
 			<if test = 'usrBrtDt != null and usrBrtDt != "" '>
-<![CDATA[  	   AND USR_BRT_DT  = #{usrBrtDt}			/* 사용자생년월일 	*/ ]]>
+<![CDATA[  	   AND USR_BRT_DT  	= #{usrBrtDt}			/* 사용자생년월일 	*/ ]]>
 			</if>
 		</where>
 	</select>
