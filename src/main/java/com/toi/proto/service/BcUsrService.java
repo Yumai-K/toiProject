@@ -33,11 +33,9 @@ public class BcUsrService {
 	}
 
 	public int updateBcUsr(BcUsrDVO bcUsrDVO) {
-		// TODO Auto-generated method stub
 		return mapper.updateBcUsr(bcUsrDVO);
 	}
 	public int deleteBcUsr(BcUsrDVO bcUsrDVO) {
-		// TODO Auto-generated method stub
 		return mapper.deleteBcUsr(bcUsrDVO);
 	}
 }
