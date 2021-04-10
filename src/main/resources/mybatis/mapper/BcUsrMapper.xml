@@ -106,4 +106,14 @@
 		   AND USR_EML 		= #{usrEml}			/* 사용자이메일 	*/  
 ]]>
 	</delete>
+	
+	<select id="tryLogin">
+<![CDATA[
+		SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.tryLogin */
+			   COUNT(*)
+		  FROM TB_BC_USR
+		 WHERE USR_ID 		= #{usrId}          /* 사용자ID 		*/
+		   AND USR_PWD 		= #{usrPwd}			/* 사용자이메일 	*/  
+]]>
+	</select>
 </mapper>

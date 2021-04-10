@@ -38,4 +38,15 @@ public class BcUsrService {
 	public int deleteBcUsr(BcUsrDVO bcUsrDVO) {
 		return mapper.deleteBcUsr(bcUsrDVO);
 	}
+	
+	public String tryLogin(BcUsrDVO bcUsrDVO) {
+		String rtn = "fail";
+		int result = 0;
+		result = mapper.tryLogin(bcUsrDVO);
+		if ( result == 1) {
+			rtn = "mindal";
+		}
+		return rtn;
+	}
+
 }

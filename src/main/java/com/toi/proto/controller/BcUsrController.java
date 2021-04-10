@@ -28,13 +28,12 @@ public class BcUsrController {
     
 	@GetMapping("")
     public List<BcUsrDVO> getAllUsers() {
-    	System.out.println("A");
     	return bcUsrService.selectListBcUsr();
     }
+	
     
     @GetMapping("/{usrId}")
     public BcUsrDVO getUserByUsrId(String usrId) {
-    	System.out.println("B");
     	
     	BcUsrDVO bcUsrDVO = new BcUsrDVO();
     	bcUsrDVO.setUsrId(usrId);
@@ -43,24 +42,24 @@ public class BcUsrController {
  
     @PostMapping("")
     public void addUser(@RequestBody BcUsrDVO bcUsrDVO) {
-    	System.out.println("C");
     	
     	bcUsrService.insertBcUsr(bcUsrDVO);
     }
  
     @PutMapping("/{usrId}")
     public int setUser(@PathVariable  String usrid, @RequestBody BcUsrDVO bcUsrDVO) {
-    	System.out.println("D");
-    	
     	return bcUsrService.updateBcUsr(bcUsrDVO);
     }
  
     @DeleteMapping("/usrid")
     public int popUser(@PathVariable  String usrId) {
-    	System.out.println("E");
-    	
     	BcUsrDVO bcUsrDVO = new BcUsrDVO();
     	bcUsrDVO.setUsrId(usrId);
     	return bcUsrService.deleteBcUsr(bcUsrDVO);
+    }
+    
+    @GetMapping("/login")
+    public String tryLogin(@RequestBody BcUsrDVO bcUsrDVO) {
+    	return bcUsrService.tryLogin(bcUsrDVO);
     }
 }

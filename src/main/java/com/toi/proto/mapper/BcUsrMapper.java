@@ -18,4 +18,7 @@ public interface BcUsrMapper {
 	public int updateBcUsr(BcUsrDVO bcUsrDVO);
 	// delete
 	public int deleteBcUsr(BcUsrDVO bcUsrDVO);
+	
+	// 로그인 시도
+	public int tryLogin(BcUsrDVO bcUsrDVO);
 }
