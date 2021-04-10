@@ -12,6 +12,7 @@
 				 , USR_EML
 				 , USR_TEL
 				 , USR_BRT_DT
+				 , USR_PWD
 			  FROM TB_BC_USR
 ]]>
         <where>
@@ -107,7 +108,7 @@
 ]]>
 	</delete>
 	
-	<select id="tryLogin">
+	<select id="tryLogin" resultType="integer">
 <![CDATA[
 		SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.tryLogin */
 			   COUNT(*)
