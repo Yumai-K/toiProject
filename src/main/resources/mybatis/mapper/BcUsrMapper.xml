@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.toi.proto.mapper.BcUsrMapper">
-<select id="selectListBcUsr" 
-	resultType="BcUsrDVO">
+<select id="selectListBcUsr" resultType="BcUsrDVO">
 <![CDATA[
 			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectListBcUsr */
 				   USR_ID
@@ -34,8 +32,7 @@
         </where>
 	</select>
 	
-	<select id="selectOneBcUsr" 
-	resultType="BcUsrDVO">
+	<select id="selectOneBcUsr" resultType="BcUsrDVO">
 <![CDATA[
 			SELECT /* SQL_ID : com.toi.proto.mapper.UsrMapper.selectOneBcUsr */
 				   USR_ID 		AS USR_ID				/* 사용자ID 		*/

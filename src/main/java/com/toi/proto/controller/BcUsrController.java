@@ -25,6 +25,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 @Slf4j
 public class BcUsrController {
+	
 	private Logger logger = LoggerFactory.getLogger(this.getClass());
 	
 	private BcUsrService bcUsrService;
@@ -36,14 +37,14 @@ public class BcUsrController {
     
 	@GetMapping("")
     public List<BcUsrDVO> getAllUsers() {
-		logger.info("getAllUsers");
+		logger.debug("getAllUsers");
     	return bcUsrService.selectListBcUsr();
     }
 	
     
     @GetMapping("/{usrId}")
     public BcUsrDVO getUserByUsrId(String usrId) {
-    	logger.info("getUserByUsrId");
+    	logger.debug("getUserByUsrId");
     	BcUsrDVO bcUsrDVO = new BcUsrDVO();
     	bcUsrDVO.setUsrId(usrId);
         return bcUsrService.selectOneBcUsr(bcUsrDVO);
@@ -51,27 +52,27 @@ public class BcUsrController {
  
     @PostMapping("")
     public void addUser(@RequestBody BcUsrDVO bcUsrDVO) {
-    	logger.info("addUser");
+    	logger.debug("addUser");
     	bcUsrService.insertBcUsr(bcUsrDVO);
     }
  
     @PutMapping("/{usrId}")
     public int setUser(@PathVariable  String usrid, @RequestBody BcUsrDVO bcUsrDVO) {
-      	logger.info("setUser");
+      	logger.debug("setUser");
     	return bcUsrService.updateBcUsr(bcUsrDVO);
     }
  
     @DeleteMapping("/usrid")
     public int popUser(@PathVariable  String usrId) {
-    	logger.info("popUser");
+    	logger.debug("popUser");
     	BcUsrDVO bcUsrDVO = new BcUsrDVO();
     	bcUsrDVO.setUsrId(usrId);
     	return bcUsrService.deleteBcUsr(bcUsrDVO);
     }
     
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String tryLogin(@RequestBody BcUsrDVO bcUsrDVO) {
-    	logger.info("login");
+    	logger.debug("login");
     	return bcUsrService.tryLogin(bcUsrDVO);
     }
 }

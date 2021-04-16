@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.toi.proto.mapper.BcBltnBrdDMapper">
+
+<select id="selectOneBcBltnBrdD" resultType="BcBltnBrdDDVO">
+SELECT BLTN_BRD_M_SQN, BLTN_BRD_D_SQN, BLTN_BRD_D_TYP, BLTN_BRD_D_NM, BLTN_BRD_D_CNT, BLTN_BRD_D_TOP_SQN, BLTN_BRD_D_UPR_SQN, SQN, DEL_YN, STEP, ATFL_SQN, FSR_REG_DTM, FSR_REG_USR_ID, LST_MDF_DTM, LST_MDF_USR_ID
+FROM TB_BC_BLTN_BRD_D
+WHERE BLTN_BRD_M_SQN = 1 AND BLTN_BRD_D_SQN = 1
+</select>
+
+<select id="selectListBcBltnBrdD" resultType="BcBltnBrdDDVO">
+SELECT BLTN_BRD_M_SQN, BLTN_BRD_D_SQN, BLTN_BRD_D_TYP, BLTN_BRD_D_NM, BLTN_BRD_D_CNT, BLTN_BRD_D_TOP_SQN, BLTN_BRD_D_UPR_SQN, SQN, DEL_YN, STEP, ATFL_SQN, FSR_REG_DTM, FSR_REG_USR_ID, LST_MDF_DTM, LST_MDF_USR_ID
+FROM TB_BC_BLTN_BRD_D
+WHERE BLTN_BRD_M_SQN = 1 AND BLTN_BRD_D_SQN = 1
+</select>
+
+<insert id="insertBcBltnBrdD">
+INSERT INTO TB_BC_BLTN_BRD_D
+    (BLTN_BRD_M_SQN, 
+    BLTN_BRD_D_SQN, 
+    BLTN_BRD_D_TYP, 
+    BLTN_BRD_D_NM, 
+    BLTN_BRD_D_CNT, 
+    BLTN_BRD_D_TOP_SQN, 
+    BLTN_BRD_D_UPR_SQN, 
+    SQN, 
+    DEL_YN, 
+    STEP, 
+    ATFL_SQN, 
+    FSR_REG_DTM, 
+    FSR_REG_USR_ID, 
+    LST_MDF_DTM, 
+    LST_MDF_USR_ID)
+VALUES
+    (1, 
+    1, 
+    'N', 
+    'BLTN_BRD_D_NM 1', 
+    'BLTN_BRD_D_CNT 1', 
+    1, 
+    1, 
+    1, 
+    'N', 
+    1, 
+    'ATFL_SQN 1', 
+    NOW(), 
+    'FSR_REG_USR_ID 1', 
+    NOW(), 
+    'LST_MDF_USR_ID 1')
+</insert>
+
+<update id="updateBcBltnBrdD">
+UPDATE TB_BC_BLTN_BRD_D
+SET
+    BLTN_BRD_M_SQN = 1, 
+    BLTN_BRD_D_SQN = 1, 
+    BLTN_BRD_D_TYP = 'N', 
+    BLTN_BRD_D_NM = 'BLTN_BRD_D_NM 1', 
+    BLTN_BRD_D_CNT = 'BLTN_BRD_D_CNT 1', 
+    BLTN_BRD_D_TOP_SQN = 1, 
+    BLTN_BRD_D_UPR_SQN = 1, 
+    SQN = 1, 
+    DEL_YN = 'N', 
+    STEP = 1, 
+    ATFL_SQN = 'ATFL_SQN 1', 
+    FSR_REG_DTM = NOW(), 
+    FSR_REG_USR_ID = 'FSR_REG_USR_ID 1', 
+    LST_MDF_DTM = NOW(), 
+    LST_MDF_USR_ID = 'LST_MDF_USR_ID 1'
+WHERE BLTN_BRD_M_SQN = 1 AND BLTN_BRD_D_SQN = 1
+</update>
+
+<delete id="deleteBcBltnBrdD">
+DELETE FROM TB_BC_BLTN_BRD_D
+WHERE BLTN_BRD_M_SQN = 1 AND BLTN_BRD_D_SQN = 1
+</delete>
+
+</mapper>

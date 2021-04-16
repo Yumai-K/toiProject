@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.toi.proto.mapper.BcBltnBrdMMapper">
+
+<select id="selectOneBcBltnBrdM" resultType="BcBltnBrdMDVO">
+SELECT BLTN_BRD_M_SQN, BLTN_BRD_M_TYP, BLTN_BRD_M_NM, DEL_YN, FSR_REG_DTM, FSR_REG_USR_ID, LST_MDF_DTM, LST_MDF_USR_ID
+FROM TB_BC_BLTN_BRD_M
+WHERE BLTN_BRD_M_SQN = 1
+</select>
+
+<select id="selectListBcBltnBrdM" resultType="BcBltnBrdMDVO">
+SELECT BLTN_BRD_M_SQN, BLTN_BRD_M_TYP, BLTN_BRD_M_NM, DEL_YN, FSR_REG_DTM, FSR_REG_USR_ID, LST_MDF_DTM, LST_MDF_USR_ID
+FROM TB_BC_BLTN_BRD_M
+WHERE BLTN_BRD_M_SQN = 1
+</select>
+
+<insert id="insertBcBltnBrdM">
+INSERT INTO TB_BC_BLTN_BRD_M
+    (BLTN_BRD_M_TYP, 
+    BLTN_BRD_M_NM, 
+    DEL_YN, 
+    FSR_REG_DTM, 
+    FSR_REG_USR_ID, 
+    LST_MDF_DTM, 
+    LST_MDF_USR_ID)
+VALUES
+    ('N', 
+    'BLTN_BRD_M_NM 1', 
+    'N', 
+    NOW(), 
+    'FSR_REG_USR_ID 1', 
+    NOW(), 
+    'LST_MDF_USR_ID 1')
+</insert>
+
+<update id="updateBcBltnBrdM">
+UPDATE TB_BC_BLTN_BRD_M
+SET
+    BLTN_BRD_M_TYP = 'N', 
+    BLTN_BRD_M_NM = 'BLTN_BRD_M_NM 1', 
+    DEL_YN = 'N', 
+    FSR_REG_DTM = NOW(), 
+    FSR_REG_USR_ID = 'FSR_REG_USR_ID 1', 
+    LST_MDF_DTM = NOW(), 
+    LST_MDF_USR_ID = 'LST_MDF_USR_ID 1'
+WHERE BLTN_BRD_M_SQN = 1
+</update>
+
+<delete id="deleteBcBltnBrdM">
+DELETE FROM TB_BC_BLTN_BRD_M
+WHERE BLTN_BRD_M_SQN = 1;
+</delete>
+</mapper>
